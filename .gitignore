@@ -1,0 +1,20 @@
+# JetBrains IDEs
+.idea
+
+# Ignore installed node modules
+node_modules
+
+# Ignore final files
+dist
+
+.vscode
+
+# Ignore logs
+npm-debug.log
+
+app
+!app/package.json
+yarn-error.log
+src/config/development.js
+
+.DS_STORE

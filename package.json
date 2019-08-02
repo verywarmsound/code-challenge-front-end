@@ -1,0 +1,151 @@
+{
+  "name": "code-challenge",
+  "productName": "code-challenge.FrontEnd",
+  "version": "0.1.0",
+  "description": "code test",
+  "main": "index.js",
+  "prettier": {
+    "printWidth": 100,
+    "parser": "flow",
+    "jsxBracketSameLine": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true,
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "plugins": [
+      "react",
+      "flowtype",
+      "jest"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "rules": {
+      "comma-dangle": 0,
+      "flowtype/define-flow-type": 1,
+      "flowtype/use-flow-type": 1
+    },
+    "env": {
+      "jest/globals": true
+    },
+    "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "15.4.2"
+      }
+    },
+    "globals": {
+      "window": true,
+      "Promise": true,
+      "process": true,
+      "module": true,
+      "console": true
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-flow",
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "babel-plugin-styled-components",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-transform-runtime",
+      "react-hot-loader/babel"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint src --ext .js",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "build": "shx rm -rf ./dist/* && webpack && shx cp -R ./config ./dist",
+    "start": "cross-env APP_ENV=development webpack-dev-server --inline --hot",
+    "starts": "cross-env APP_ENV=development webpack-dev-server --inline --hot --https",
+    "test:watch": "yarn run test -- --watch",
+    "deploy": "yarn run build && shx cp -R ./dist/* ../wwwroot/",
+    "format": "prettier --write \"src/**/*.js\"",
+    "lint": "yarn run format && yarn run eslint src && yarn run flow",
+    "test": "yarn run lint && yarn run jest"
+  },
+  "author": "Olga Korpacheva",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.14.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-flowtype": "^3.4.2",
+    "eslint-plugin-jest": "^22.3.0",
+    "eslint-plugin-react": "^7.12.4",
+    "favicons-webpack-plugin": "^0.0.9",
+    "file-loader": "^3.0.1",
+    "flow-bin": "^0.93.0",
+    "flow-status-webpack-plugin": "^0.1.7",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
+    "jest": "^24.1.0",
+    "lint-staged": "^8.1.4",
+    "mini-css-extract-plugin": "^0.5.0",
+    "regenerator-runtime": "^0.13.1",
+    "shx": "^0.3.2",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "enzyme": "^3.10.0",
+    "leaflet": "^1.5.1",
+    "luxon": "^1.17.2",
+    "prettier": "^1.18.2",
+    "ramda": "0.26.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-hot-loader": "^4.6.5",
+    "react-leaflet": "^2.4.0",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-saga": "^1.0.1",
+    "reselect": "^4.0.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.87.3",
+    "styled-components": "4.1.4-alpha.5"
+  }
+}

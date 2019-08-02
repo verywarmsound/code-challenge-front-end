@@ -1,0 +1,16 @@
+[ignore]
+\w\../node_modules/(?!\react-redux)
+
+[include]
+.*/node_modules/react-redux/.*
+.*/node_modules/react-hot-loader/.*
+.*/node_modules/react-router-dom/.*
+.*/node_modules/bti-18n/.*
+
+[libs]
+
+[lints]
+
+[options]
+
+
